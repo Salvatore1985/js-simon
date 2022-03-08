@@ -20,19 +20,45 @@ I numeri della Cpu sono ${numberCpu}`;
 const myDispayNone = () => document.getElementById("message-cpu").innerHTML = `il tempo e scaduto`;
 setTimeout(myDispayNone, 30000);
 
-//! Creo un ciclo while per chiedere 5 volte il numero all'utente
-let userNumber = "";
+//*INSERISCO UN TIMER DI 30" E DOPO DI CHè SOVRASCRIVO IL MESSAGGIO NELLA PAGINA
+const userNumberTime = () => {
+
+    //! Creo un ciclo while per chiedere 5 volte il numero all'utente
+    const numbersUser = [];
+    let userNumber = "";
+    let i = 0;
+    while (i < 5) {
+        userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
+        numbersUser.push(userNumber);
+        i++
+    };
+    console.table(numbersUser);
+}
+setTimeout(userNumberTime, 30000);
+
+
+//! DA CONTROLLARE CON RICCARDO
+/* 
+const numbersUser = [];
+let userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
 let i = 0;
-while ((!userNumber || isNaN(userNumber)) && i < 5) {
-    userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
-    console.log(userNumber);
-    i++
+
+while (i < 5) {
+    if (isNaN(userNumber)) {
+        console.log("numero sbagliato");
+    } else {
+
+        userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
+       
+        numbersUser.push(userNumber);
+        i++
+    }
+
 };
 
+console.table(numbersUser);
 
-
-
-
+ */
 
 //  function che crea un numero random tra min e max e lo inserisci in un'array
 /**
