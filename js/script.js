@@ -41,8 +41,11 @@ const userNumberTime = () => {
         }
         i++
     };
+
     console.table(numbersUser);
     console.log("Numeri in comune", numberInCommon);
+
+    //! controllo se ci sono numeri all'interno della array dei numeri comuni
     if (numberInCommon.length < 1) {
         message.innerHTML = `Non ci sono numeri in comune`;
     } else {

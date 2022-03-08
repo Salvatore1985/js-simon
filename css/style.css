@@ -3,3 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: black;
+}
+main div {
+   margin-top: 8rem;
+}
+.my-color-blue{
+    color: rgba(68, 0, 255, 0.774);
+    text-decoration: underline;
+}
+
+main div h2,
+main div h1{
+    text-align: center;
+    padding: 3rem;
+
+}
+
+h2{
+    color: rgba(255, 255, 255, 0.705);
+}
