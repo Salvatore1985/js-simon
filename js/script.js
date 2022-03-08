@@ -18,6 +18,8 @@ I numeri della Cpu sono ${numberCpu}`;
 
 
 
+const myDispayNone = () => document.getElementById("message-cpu").innerHTML = `il tempo e scaduto`;
+setTimeout(myDispayNone, 30000);
 
 
 
