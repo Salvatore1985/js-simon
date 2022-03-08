@@ -10,7 +10,7 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 //*Inserisco 5 numeri casuali inun arrai che possono essere uguali
 const numberCpu = [];
 const numberInCommon = [];
-const myTimes = 3000;
+const myTimes = 30000;
 let numberPage = generateRandomNumber(numberCpu, 5, 1, 100);
 console.log(numberPage);
 
