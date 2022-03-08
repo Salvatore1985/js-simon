@@ -9,16 +9,19 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 //*Inserisco 5 numeri casuali inun arrai che possono essere uguali
 const numberCpu = [];
+const numberInCommon = [];
+const myTimes = 30000;
 let numberPage = generateRandomNumber(numberCpu, 5, 1, 100);
 console.log(numberPage);
 
 //*RECUPERO L'ELEMENTO DAL DOM
-document.getElementById("message-cpu").innerHTML = `
+let message = document.getElementById("message-cpu");
+message.innerHTML = `
 I numeri della Cpu sono ${numberCpu}`;
 
 //*INSERISCO UN TIMER DI 30" E DOPO DI CHè SOVRASCRIVO IL MESSAGGIO NELLA PAGINA
-const myDispayNone = () => document.getElementById("message-cpu").innerHTML = `il tempo e scaduto`;
-setTimeout(myDispayNone, 30000);
+const myDispayNone = () => message.innerHTML = `il tempo e scaduto`;
+setTimeout(myDispayNone, myTimes);
 
 //*INSERISCO UN TIMER DI 30" E DOPO DI CHè SOVRASCRIVO IL MESSAGGIO NELLA PAGINA
 const userNumberTime = () => {
@@ -29,12 +32,25 @@ const userNumberTime = () => {
     let i = 0;
     while (i < 5) {
         userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
-        numbersUser.push(userNumber);
+        if (numberCpu.includes(userNumber)) {
+            numberInCommon.push(userNumber);
+            console.log(userNumber + "e un numero dellaCPU");
+        } else {
+            console.log(userNumber + " un è numero dellaCPU");
+            numbersUser.push(userNumber);
+        }
         i++
     };
     console.table(numbersUser);
+    console.log("Numeri in comune", numberInCommon);
+    message.innerHTML = `I numeri in comune sono ${numberInCommon}`;
 }
-setTimeout(userNumberTime, 30000);
+setTimeout(userNumberTime, myTimes);
+
+
+
+
+
 
 
 //! DA CONTROLLARE CON RICCARDO
