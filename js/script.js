@@ -10,7 +10,7 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 //*Inserisco 5 numeri casuali inun arrai che possono essere uguali
 const numberCpu = [];
 const numberInCommon = [];
-const myTimes = 30000;
+const myTimes = 3000;
 let numberPage = generateRandomNumber(numberCpu, 5, 1, 100);
 console.log(numberPage);
 
@@ -31,7 +31,7 @@ const userNumberTime = () => {
     let userNumber = "";
     let i = 0;
     while (i < 5) {
-        userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
+        userNumber = parseInt(prompt("inserisci un numero tra 1 e 100 " + "5/ " + i));
         if (numberCpu.includes(userNumber)) {
             numberInCommon.push(userNumber);
             console.log(userNumber + "e un numero dellaCPU");
@@ -43,7 +43,12 @@ const userNumberTime = () => {
     };
     console.table(numbersUser);
     console.log("Numeri in comune", numberInCommon);
-    message.innerHTML = `I numeri in comune sono ${numberInCommon}`;
+    if (numberInCommon.length < 1) {
+        message.innerHTML = `Non ci sono numeri in comune`;
+    } else {
+
+        message.innerHTML = `I numeri in comune sono ${numberInCommon}`;
+    }
 }
 setTimeout(userNumberTime, myTimes);
 
