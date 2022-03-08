@@ -16,14 +16,18 @@ console.log(numberPage);
 document.getElementById("message-cpu").innerHTML = `
 I numeri della Cpu sono ${numberCpu}`;
 
-
-
+//*INSERISCO UN TIMER DI 30" E DOPO DI CHè SOVRASCRIVO IL MESSAGGIO NELLA PAGINA
 const myDispayNone = () => document.getElementById("message-cpu").innerHTML = `il tempo e scaduto`;
 setTimeout(myDispayNone, 30000);
 
-
-
-
+//! Creo un ciclo while per chiedere 5 volte il numero all'utente
+let userNumber = "";
+let i = 0;
+while ((!userNumber || isNaN(userNumber)) && i < 5) {
+    userNumber = parseInt(prompt("inserisci un numero" + "5/ " + i));
+    console.log(userNumber);
+    i++
+};
 
 
 
