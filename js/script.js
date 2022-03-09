@@ -31,22 +31,24 @@ const userNumberTime = () => {
     let userNumber = "";
     let i = 0;
     const numberCycle = 5;
-    while (i < numberCycle) {
-        userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
-        while (isNaN(userNumber) || parseInt(userNumber) > 100 || parseInt(userNumber) <= 1) {
-            userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
-        }
 
-        if (numberCpu.includes(userNumber)) {
-            numberInCommon.push(userNumber);
-            console.log(userNumber + "e un numero dellaCPU");
-        } else {
-            console.log(userNumber + " un è numero dellaCPU");
-            numbersUser.push(userNumber);
-        }
-        i++
-    };
 
+    /*  while (i < numberCycle) {
+         userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
+         while (isNaN(userNumber) || parseInt(userNumber) > 100 || parseInt(userNumber) < 1) {
+             userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
+         }
+ 
+         if (numberCpu.includes(userNumber)) {
+             numberInCommon.push(userNumber);
+             console.log(userNumber + "e un numero dellaCPU");
+         } else {
+             console.log(userNumber + " un è numero dellaCPU");
+             numbersUser.push(userNumber);
+         }
+         i++
+     };
+  */
     console.table(numbersUser);
     console.log("Numeri in comune", numberInCommon);
 
@@ -109,4 +111,50 @@ function generateRandomNumber(numsArray, number, min, max) {
 
     return numsArray;
 
-}; 
+};
+
+/**
+ * Chiedere per N volte all'utente di inserire un numero con covalida
+ * @param {*} numberCycle inserire il numero di volte che deve ripetere il prompt
+ */
+function userNumber(numberCycle, max, min) {
+    i = 0;
+    while (i < numberCycle) {
+        userNumberPrompt = parseInt(prompt(`Inserisci un numero tra ${min} e ${max} ( ${i} / ${numberCycle})`));
+        while (isNaN(userNumberPrompt) || parseInt(userNumberPrompt) > max || parseInt(userNumberPrompt) < min) {
+            userNumberPrompt = parseInt(prompt(`Inserisci un numero tra ${min} e ${max} ( ${i} / ${numberCycle})`));
+        }
+        i++;
+    }
+    return userNumberPrompt;
+};
+
+/**
+ * Chiedere per N volte all'utente di inserire un numero con covalida confronta due array 
+ * inserendo i gli elementi comuni in una terza array
+ * @param {*} numberCycle numero di cicli che vuoi fare
+ * @param {*} max numero massimo che vuoi da inserire
+ * @param {*} min numero minimo che vuoi da inserire
+ * @param {*} arrayOne prima array
+ * @param {*} Arraytwo seconda array
+ * @param {*} ArrayElementCommon array comune
+ * @returns 
+ */
+function ElementIncluseArrayCommon(numberCycle, max, min, arrayOne, Arraytwo, ArrayElementCommon) {
+    i = 0;
+    while (i < numberCycle) {
+        userNumberPrompt = parseInt(prompt(`Inserisci un numero tra ${min} e ${max} ( ${i} / ${numberCycle})`));
+        while (isNaN(userNumberPrompt) || parseInt(userNumberPrompt) > max || parseInt(userNumberPrompt) < min) {
+            userNumberPrompt = parseInt(prompt(`Inserisci un numero tra ${min} e ${max} ( ${i} / ${numberCycle})`));
+        }
+        if (arrayOne.includes(userNumberPrompt)) {
+            ArrayElementCommon.push(userNumberPrompt);
+            console.log(userNumberPrompt + "e un numero dellaCPU");
+        } else {
+            console.log(userNumberPrompt + " un è numero dellaCPU");
+            Arraytwo.push(userNumberPrompt);
+        }
+        i++;
+    }
+    return ArrayElementCommon;
+};
