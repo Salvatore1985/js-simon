@@ -31,7 +31,7 @@ const userNumberTime = () => {
     let userNumber = "";
     let i = 0;
     const numberCycle = 5;
-
+    ElementIncluseArrayCommon(numberCycle, 100, 1, numberCpu, numbersUser, numberInCommon)
 
     /*  while (i < numberCycle) {
          userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
