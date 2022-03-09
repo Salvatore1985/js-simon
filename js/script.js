@@ -30,10 +30,11 @@ const userNumberTime = () => {
     const numbersUser = [];
     let userNumber = "";
     let i = 0;
-    while (i < 5) {
-        userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / 5)`));
+    const numberCycle = 5;
+    while (i < numberCycle) {
+        userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
         while (isNaN(userNumber) || parseInt(userNumber) > 100 || parseInt(userNumber) <= 1) {
-            userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / 5)`));
+            userNumber = parseInt(prompt(`Inserisci un numero tra 1 e 100 ( ${i} / ${numberCycle})`));
         }
 
         if (numberCpu.includes(userNumber)) {
